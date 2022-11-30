@@ -7,7 +7,7 @@ import { DatePipe } from '@angular/common';
 export class NgbDateCustomformatter  {
 constructor(public datepipe: DatePipe){}
     format:string='dd-mm-yyyy';
-    formatDate(date:Date):any{
-        return this.datepipe.transform(date,this.format);
+    formatDate(date:Date):any{ return this.datepipe.transform(date,this.format);
+       
     }
 }

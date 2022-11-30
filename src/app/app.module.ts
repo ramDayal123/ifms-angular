@@ -57,6 +57,18 @@ import { ESSReqComponent } from './ess-req/ess-req.component';
 import { EmployeeDatesComponent } from './EmployeeDetails/employee-dates/employee-dates.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ESSdashboardMenuComponent } from './ess-req/ess-dashboard/essdashboard-menu/essdashboard-menu.component';
+import { ESSDashboardComponent } from './ess-req/ess-dashboard/ess-dashboard.component';
+import { RequestComponent } from './ess-req/ess-siloane/request/request.component';
+import { EssSiloanDeductionComponent } from './ess-req/ess-siloan-deduction/ess-siloan-deduction.component';
+// bbb
+import { ESSRequestForwardComponent } from './ess-request-forward/ess-request-forward.component';
+import { EssPersonalComponent } from './ess-request-forward/ess-personal/ess-personal.component';
+import { EssEmpDateTypeComponent } from './ess-request-forward/ess-emp-date-type/ess-emp-date-type.component';
+import { EssNomineeUpdateComponent } from './ess-request-forward/ess-nominee-update/ess-nominee-update.component';
+import { EssOtherNumberUpdateComponent } from './ess-request-forward/ess-other-number-update/ess-other-number-update.component';
+import { EssBankAccountChangeRequestComponent } from './ess-request-forward/ess-bank-account-change-request/ess-bank-account-change-request.component';
+
 
 
 
@@ -104,6 +116,18 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     LandingPageComponent,
     ESSReqComponent,
     EmployeeDatesComponent,
+    ESSdashboardMenuComponent,
+    ESSDashboardComponent,
+    RequestComponent,
+    EssSiloanDeductionComponent,
+    // bb
+    ESSRequestForwardComponent,
+    EssPersonalComponent,
+    EssEmpDateTypeComponent,
+    EssNomineeUpdateComponent,
+    EssOtherNumberUpdateComponent,
+    EssBankAccountChangeRequestComponent,
+
 
 
   ],
@@ -115,9 +139,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
+   
     MatStepperModule,
     MatPaginatorModule,
     MatTableModule,
@@ -126,13 +148,23 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     MatCheckboxModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+
+    // bb
+
+
+  
     
     
    
   ],
-  providers:[{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-  { provide: LOCALE_ID, useValue: "en-us" }],
+  providers:[{ provide: MAT_DATE_LOCALE,useValue: 'MY_FORMATS'},
+ ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

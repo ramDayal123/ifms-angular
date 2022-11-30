@@ -14,6 +14,10 @@ import Swal from 'sweetalert2';
 export class AddressComponent implements OnInit {
   essEmployeeAddressSavedata: any;
   saveAddress! : FormGroup;
+  selectedRecord: any;
+  State: any;
+  district: any;
+  blockId:any;
   constructor(private formbuilder: FormBuilder, private apiService: ApiService, private http: HttpClient, private router: Router, private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
@@ -25,48 +29,25 @@ export class AddressComponent implements OnInit {
       Urban : ['-1',Validators.required],
       BlockMuncipal : ['-1',Validators.required],
       PanchayatWard : ['-1',Validators.required],
+      Assembly : ['',Validators.required],
+      pincode : ['',Validators.required],
+      HouseNo : ['',Validators.required]
    })
+
   }
-
-
   Statedata:any=[];
+   StatedataP:any=[];
   area:string = ''; 
   state:string='';
-  district:string='';
-
-
   getState(): void{
-
-
     this.apiService.getState().subscribe({
-      next: (res) => {
-        if (res.status = 200) {
-          this.Statedata = res.data
-        }
-      },
-      error: (err) => {
-        let errorObj = {
-          message: err.message,
-          err: err,
-          response: err
-        }
-     
-      }
-    })
-  }
 
-
-  Districtdata:any=[];
-  getDistrict(state:string){
-    this.state=state;
-
-
-    this.apiService.getDistrict(state).subscribe({
       next: (res) => {
         // var MaritalStatusJson = JSON.parse(res.data);
         // var statusJson = JSON.parse(res.status);
         if (res.status = 200) {
-          this.Districtdata = res.data
+          this.Statedata = res.data
+          this.StatedataP = res.data
         }
       },
       error: (err) => {
@@ -81,20 +62,48 @@ export class AddressComponent implements OnInit {
         // alert(err.error.message)
       }
     })
+  }
 
+
+
+  Districtdata:any=[];
+  DistrictdataP:any=[];
+  getDistrict(state:string){
+    this.state=state;
+    this.apiService.getDistrict(state).subscribe({
+
+      next: (res) => {
+        // var MaritalStatusJson = JSON.parse(res.data);
+        // var statusJson = JSON.parse(res.status);
+        if (res.status = 200) {
+          this.Districtdata = res.data
+        this.DistrictdataP = res.data
+
+        }
+      },
+      error: (err) => {
+        let errorObj = {
+          message: err.message,
+          err: err,
+          response: err
+        }
+        // alert("error while fatching data from get MaritalStatus ");
+        // console.log("error from get MaritalStatus api is ", errorObj);
+        // console.log("error from get MaritalStatus api is ", err);
+        // alert(err.error.message)
+      }
+    })
    }
+
+   
    BlockCitydata:any=[];
    onItemChange(event:any){
      this.area = event.target.value;
-    let districtCd = $('#districtCd').val();
-
+    this.district = $('#districtCd').val();
     let requestedData = {
-      "idistrictId":districtCd,
+      "idistrictId":this.district,
       "istateId":  this.state
       }
-
-   
-
       this.apiService.getBlockMunicipal(requestedData).subscribe({
 
         next: (res) => {
@@ -117,16 +126,19 @@ export class AddressComponent implements OnInit {
         }
       })
    }
+
+
+
    PanchayatWardata:any=[];
    getPanchayatWard(event:any){
-    let bmId = event.target.value;
+    this.blockId = event.target.value;
     // let BlockCity = $('#BlockCitydata').val();
     let districtCd = $('#districtCd').val();
 
     let requestedData = {
-      "imunPId":bmId,
-      "istateId":this.state,
-      "idistrictId":districtCd,
+      "istateId": this.state,
+      "idistrictId":this.state,
+      "iblockId":this.blockId,
     }
       this.apiService.getPanchayatWard(requestedData).subscribe({
 
@@ -150,6 +162,10 @@ export class AddressComponent implements OnInit {
         }
       })
    }
+
+
+
+   
    Villagedata:any=[];
    getVillage(event:any){
     let gpId = event.target.value;
@@ -157,7 +173,6 @@ export class AddressComponent implements OnInit {
     let requestedData = {
       "gpId":gpId,
       }
-      alert ('hello')
       this.apiService.getWard(requestedData).subscribe({
 
         next: (res) => {
@@ -207,9 +222,10 @@ export class AddressComponent implements OnInit {
     }
 
     OnSubmit(){
+     
       let data ={
         "pstate":this.saveAddress.controls["State"].value,
-        "pdistrict": "ty",
+        "pdistrict":this.saveAddress.controls["District"].value,
         "parea": 3,
         "pblock": 4,
         "pvillage": "drd",
@@ -240,8 +256,28 @@ export class AddressComponent implements OnInit {
     })
       
      }
-    ComponetLoad(cname:any):void{
-      this.router.navigate(['/'+cname])
+       // autolode data selecter
+  setFormValue(formname: FormGroup, fields: []): any {
+
+  }
+
+     clickautodata(){
+       alert (this.saveAddress.controls["HouseNo"].value)
+     $('#pincode_p').val(this.saveAddress.controls["pincode"].value)
+     $('#state_p').val(this.saveAddress.controls["State"].value)
+     $('#District_p').val(this.saveAddress.controls["District"].value)
+     $('#HouseNo_p').val(this.saveAddress.controls["HouseNo"].value)
+
+     
+     
+      this.saveAddress = this.formbuilder.group({
+        pincode_p : ['-1'],
+     })
+       
      }
-  
+
+
+    ComponetLoad(cname:any):void{
+      this.router.navigate(['/'+cname]);
+    }
 }

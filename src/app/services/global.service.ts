@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
 
   constructor() { }
+
+
+ 
 
   // global functions variables here
   letterOnly(event:any) : Boolean{
@@ -28,9 +32,14 @@ export class GlobalService {
   
   numberOnly(event:any): Boolean{
     const charCode = (event.which) ? event.which : event.keyCode;
+
     if((charCode < 48 || charCode > 57)){
       return false;
     }
+
+
+
+    
     return true;
   }
 
@@ -123,9 +132,7 @@ keyPressAlphaNumericWithCharactersAlpha(event:any) {
       return true;
     }
   }
- 
 
- 
 
 // Only AlphaNumeric
 keyPressAlphaNumeric(event:any) {
@@ -133,6 +140,24 @@ keyPressAlphaNumeric(event:any) {
   var inp = String.fromCharCode(event.keyCode);
 
   if (/[a-zA-Z0-9]/.test(inp)) {
+    return true;
+  } else {
+    event.preventDefault();
+    return false;
+  }
+
+
+  
+}
+
+
+
+// Only pancard
+keyPressAlphaNumericpancard(event:any) {
+
+  var inp = String.fromCharCode(event.keyCode);
+
+  if (/[ A-Z0-9]/.test(inp)) {
     return true;
   } else {
     event.preventDefault();

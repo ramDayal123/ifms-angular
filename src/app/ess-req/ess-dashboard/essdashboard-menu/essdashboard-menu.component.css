@@ -1,0 +1,26 @@
+.headerbtn{
+    background-color: #2C79C5;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.headbtngrp i{
+    position: relative;
+    left: 700px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+
+}
+.drpbtn{
+    border-radius: 3px;
+    background: #ffffff;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.drpbtn:hover{
+    background-color: #F0CA1B;
+    color: #ffffff;
+}

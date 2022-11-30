@@ -109,7 +109,7 @@
                 <label>Empolyee Type </label>
                 <select formControlName="employeeType" class="form-control form-select"
                   [ngClass]="{'is-invalid':submitted && EmpRegistration.controls['employeeType'].errors}">
-                  <option *ngFor="let mst of EmployeeTypedata" value={{mst.STATUS_ID}}>
+                  <option *ngFor="let mst of EmployeeTypedata" value={{mst.STATUS_ID}}  >
                     {{mst.STATUS_NAME}}
                   </option>
                 </select>
@@ -147,7 +147,6 @@
                 <label> Sub Service Category / Code</label>
                 <select class="form-select" class="form-control" formControlName="serviceSub_Category"
                   [ngClass]="{'is-invalid':submitted && EmpRegistration.controls['serviceSub_Category'].errors}">
-                  
                   <option *ngFor="let mst of SubServiceCategorydata" value={{mst.SRVC_SUBCAT_ID}}>
                     {{mst.SUB_SRVC_CAT_NAME_EN }}
                   </option>
@@ -168,8 +167,7 @@
 
 
               <div class="col-md-4">
-                <label> Name <span class="text-red">*</span>
-                </label>
+          
                 <input type="text" name="text" class="form-control" pattern="[a-zA-Z ]*"
                   value="{{selectedRecord.nameEng}}" formControlName="Name"
                   [ngClass]="{'is-invalid':submitted && EmpRegistration.controls['Name'].errors}">
@@ -239,11 +237,16 @@
                 <label for="appt">Appointment Date <span class="text-red">*</span></label>
 
                 <div>
+                  
                   <input class="form-control" matInput [matDatepicker]="picker2" 
-                   placeholder="DD/MM/YYYY"formControlName="dob" readonly="" [max]="getToday()" (change)="disableDate()" [min]="getMinDate()"   formControlName="Appointmentdate" value="{{selectedRecord.nameEng}}"  
+                   placeholder="DD/MM/YYYY" readonly="" [max]="getToday()" (change)="disableDate()" [min]="getMinDate()"    formControlName="Appointmentdate" [value]="getToday()|date:'medium'"
                    [ngClass]="{'is-invalid':submitted && EmpRegistration.controls['Appointmentdate'].errors}">
+
+                   
                   <mat-datepicker-toggle matSuffix [for]="picker2" ></mat-datepicker-toggle>
                   <mat-datepicker #picker2 class="mat-piker"></mat-datepicker>
+
+
                   <div *ngIf="submitted && EmpRegistration.controls['Appointmentdate'].errors" class="text-danger">
                     <div *ngIf="submitted && EmpRegistration.controls['Appointmentdate'].errors['required']">
                       Please Enter Date

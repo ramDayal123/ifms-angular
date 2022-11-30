@@ -1,0 +1,13 @@
+section.mt-5.top-section {
+    padding-top: 21px;
+}
+.ok-butto {
+    display: flex;
+    justify-content: flex-end;
+}
+h4.si-loan.float-right {
+    margin-right: 30px;
+}
+.card.border {
+    margin-bottom: 8.143rem;
+}

@@ -41,23 +41,23 @@
                 <th>Initiator Date</th>
                 <th>Requested Form</th>
                 <th>pending Since</th>
-                <th>Action</th>
+                 <th>Action</th>
                 <th>Remarks</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><a href="#"><u>RHEN000001</u></a></td>
-                <td>Employee Registration</td>
-                <td>Aavya Chobey</td>
-                <td>04-05-2022 01:02:56 AM</td>
-                <td>Aavya Chobey</td>
-                <td>01-05-2022 01:02:56 AM</td>
-                <td><button type="button" class="btn btn-success">Create</button></td>
+              <tr *ngFor="let row of getInboxdatadata">
+                <td>{{row.REFERENCE_NO}}</td>
+                <td>{{row.DESCRIPTION}}</td>
+                <td>{{row.INITIATOR}}</td>
+                <td>{{row.INITIATE_DATE}}</td>
+                <td>{{row.REQUESTED_FROM}}</td>
+                <td>{{row.PENDING_SINCE}}</td>
+                <td> <a routerLink="{{row.DDO_URL}}" >{{row.DDO_URL}}</a></td>
                 <td></td>
               </tr>
               
-              
+ 
             </tbody>
           </table>
     

@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -130,11 +130,11 @@ fieldset .mat-form-field {
 }
 
 
-.btn-primary:not(:disabled):not(.disabled).active, .show >  {
+/* .btn-primary:not(:disabled):not(.disabled).active, .show >  {
     color: #fff;
     background-color: #231e60;
     border-color: #231e60;
-}
+} */
 
 
 

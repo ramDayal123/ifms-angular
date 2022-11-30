@@ -33,7 +33,7 @@
                     <label>Aadhaar Ref No :</label>
                   </div>
                   <div class="col-md-3">
-                    <input type="text" name="text" class="form-control" maxlength="12" formControlName="addharRef" [ngClass]="{'is-invalid':submitted && EmployeeIdentification.controls['addharRef'].errors}" >
+                    <input type="text" name="text" class="form-control" maxlength="16" formControlName="addharRef" (keypress)="this.global.numberOnly($event)" [ngClass]="{'is-invalid':submitted && EmployeeIdentification.controls['addharRef'].errors}" >
                     <div *ngIf="submitted && EmployeeIdentification.controls['addharRef'].errors"
                     class="text-danger">
                     <div
@@ -64,7 +64,7 @@
                     <label>PAN :</label>
                   </div>
                   <div class="col-md-3">
-                    <input type="text" name="text" class="form-control" maxlength="10" formControlName="pancardNo"  [ngClass]="{'is-invalid':submitted && EmployeeIdentification.controls['pancardNo'].errors}">
+                    <input type="text" name="text" class="form-control"  formControlName="pancardNo" (keypress)="this.global.keyPressAlphaNumericpancard($event)"  [ngClass]="{'is-invalid':submitted && EmployeeIdentification.controls['pancardNo'].errors}">
                     <div *ngIf="submitted && EmployeeIdentification.controls['pancardNo'].errors"
                     class="text-danger">
                     <div
@@ -74,6 +74,10 @@
                   </div>
                   </div>
                 </div>
+
+                  <div class="col-md-6">
+                    
+                  </div>
                 <!-- 2 -->
               </form>
               <div class="Row" style="text-align: center;">

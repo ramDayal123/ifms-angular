@@ -1,0 +1,17 @@
+.list-group-item.active {
+    color: rgb(14, 11, 11);
+    background-color:#c6c9ce; ;
+    border-color: #c6c9ce;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.3rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+ top-section {
+    padding-top: 21px;
+}

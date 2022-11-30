@@ -17,6 +17,7 @@ export class DocumentsComponent implements OnInit {
   EmpDocument: any;
   DocumentTypedata: any;
   essEmpDocumentSavedata: any;
+  submitted!: boolean;
 
   constructor(private formbuilder: FormBuilder, private apiService: ApiService, private http: HttpClient, private router: Router, private dataStore: DataStoreService) { }
 
@@ -42,6 +43,7 @@ export class DocumentsComponent implements OnInit {
   }
 
   OnSubmit (){
+    this.submitted = true;
     let  data = {
       documentType : this.EmpDocument.controls ["documennt"].value,
       // "documentType":"gjhfd",

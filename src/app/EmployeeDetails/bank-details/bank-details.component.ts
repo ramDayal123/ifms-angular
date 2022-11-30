@@ -18,6 +18,7 @@ export class BankDetailsComponent implements OnInit {
   BankBranchData: any;
   bankDetails!: FormGroup;
   essEmpBankDetailsSavedata: any;
+  submitted!: boolean;
 
   constructor(private formbuilder: FormBuilder, private apiService: ApiService, private http: HttpClient, private router: Router, private dataStore: DataStoreService) { }
   
@@ -53,6 +54,7 @@ export class BankDetailsComponent implements OnInit {
     let requestedData = {
       iBankId: bankid.target.value
     }
+    
     this.apiService.getBankBranch(requestedData).subscribe(res => {
       if (res.data.status = 200) {
         this.BankBranchData = res.data
@@ -64,7 +66,7 @@ export class BankDetailsComponent implements OnInit {
    }
 
    OnSubmit(){
-
+    this.submitted = true;
     let data = {
       "bankAccountNumber": this.bankDetails.controls["BankAccount"].value,
       // "bankAccountNumber":"sf1345254311",

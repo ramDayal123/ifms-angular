@@ -1,0 +1,102 @@
+<!-- Content Wrapper. Contains page content -->
+<app-header></app-header>
+
+<div class="content-wrapper ">
+    <nav  aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <i class="fa text-primary fa-home" style="font-size:19px"></i>&nbsp;
+             <a  routerlink="/login" ng-reflect-router-link="/login" href="/login">Login</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a  routerlink="/employee-self-service" ng-reflect-router-link="/employee-self-service" href="/employee-self-service">Menu</a>
+          </li>
+          <li aria-current="Inbox" aria-label="Current Page" class="breadcrumb-item active"> Ess Bank Account Change Request </li>
+        </ol>
+      </nav>
+</div>
+<section class="content bg-light">
+    <div class="container">      
+        <div class="box box-default">  
+            <div class="col-md-12" style="text-align: right;padding-right: 0px !important;">               
+                <button  type="button" title="Back SI Application" (click)="goBack()"
+                class="btn btn-danger btn-flat w-50">Back</button>              
+            </div>           
+            <fieldset>
+                <legend>
+                    <div class="Row" style="text-align: center; align-items: center;  padding-top: 10px;">
+                        <label class="p-5 bg-light-blue" style=" font-weight: bold;">
+                            <div class="section-title">
+                                <p> BANK ACCOUNT CHANGE REQUEST </p>
+                            </div>
+                        </label>
+                    </div>
+                </legend>
+                <form  [formGroup]="EmpSelfDetailForm" (ngSubmit)="onSubmit()">    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Current Bank Detail</h5>
+                        </div>
+                    </div>             
+                    <div class="row m-2 mt-6" >
+                        <div class="col-md-3">
+                            <label><b>Account No.</b>  </label><br>
+                            <label> {{Name}} </label>                      
+                        </div>
+                        <div class="col-md-3">
+                            <label><b>State</b></label><br>
+                            <label>{{fatherName}} </label>                         
+                        </div>
+                        <div class="col-md-3">
+                            <label> <b>District</b> </label> <br>                       
+                            <label>{{motherName}} </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label><b>Bank </b></label> <br>                       
+                            <label>{{motherName}} </label>
+                        </div>
+                       
+                    </div>
+
+                    <div class="row m-2 mt-6" >
+                        <div class="col-md-3">
+                            <label><b>Branch</b>  </label><br>
+                            <label> {{Name}} </label>                      
+                        </div>
+                    </div>
+                    <hr style="border-color: #343a40;" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>New Bank Detail</h5>
+                        </div>
+                    </div>
+                        <div class="row m-2 mt-6" >
+                          
+                        <div class="col-md-3">
+                            <label><b>IFSC</b></label><br>
+                            <label>{{fatherName}} </label>                         
+                        </div>
+                        <div class="col-md-3">
+                            <label> <b>Account No..</b> </label> <br>                       
+                            <label>{{motherName}} </label>
+                        </div>
+                       
+                    </div>
+                    
+                    <!-- <div class="row mr-3" >
+                        <div class="col-md-12" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary btn-flat margin w-100"
+                            action="save">Save</button>
+                        </div>
+                        
+                    </div> -->
+                    <!-- <app-essbutton></app-essbutton> -->
+                    <!-- Employee Self Detail End -->
+                </form>
+            
+
+            </fieldset>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

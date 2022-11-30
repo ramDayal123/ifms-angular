@@ -13,7 +13,7 @@ import { MAT_DATE_LOCALE } from "@angular/material/core";
   selector: "app-employe-registration",
   templateUrl: "./employe-registration.component.html",
   styleUrls: ['./employe-registration.component.css'],
-  providers:[{ provide: MAT_DATE_LOCALE, useValue: 'en-us' }]
+  providers:[{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }]
 })
 export class EmployeRegistrationComponent implements OnInit {
   checked = false;
@@ -117,7 +117,7 @@ rid:any;
 
     this.EmpRegistration = this._formBuilder.group({
 
-      JanAadharId: new FormControl("", Validators.required),
+      JanAadharId: new FormControl("", Validators.required ),
       employeeType: new FormControl("-1", Validators.required),
       MemberID: new FormControl("", Validators.required),
       JanadharInfodata: new FormControl('', [Validators.required, Validators.minLength(10)]),
@@ -135,7 +135,7 @@ rid:any;
       file: new FormControl('', Validators.required),
       assigened: new FormControl('', Validators.required),
       Description: new FormControl("-1", Validators.required),
-      Appointmentdate: new FormControl("", Validators.required,),
+      Appointmentdate: new FormControl(new Date(), Validators.required,),
       remark: new FormControl('', Validators.required),
       ram: new FormControl('', Validators.required)
 
@@ -151,6 +151,9 @@ rid:any;
       this.isNextDisabled = !this.EmpRegistration.valid;
     });
   }
+
+
+  
   // EmpDocDetail: any = [];
   EmpDocDetail = new Array();
   // {
@@ -269,6 +272,7 @@ rid:any;
     })[0];
 
     //console.log(this.selectedRecord )
+
     // save data in selector 
     this.EmpRegistration.patchValue({
       employeeType: this.selectedRecord.employeeType,
@@ -289,10 +293,29 @@ rid:any;
 
 
   }
+
+  
   ///////// submit data
   submitted = false;
   onSubmit() {
     this.submitted = true;
+
+    // if(this.EmpRegistration.controls["service_Category"].value <= 1)
+    // {
+    //   alert('test service category');
+    // }
+    // else{
+    
+    // }
+
+
+  //   {
+  //     if (this.EmpRegistration.controls["service_Category"].value <= 0)
+  //        alert('this option is selected');
+  //      else
+  //        alert('this is not');
+  // }
+
     if (this.EmpRegistration.invalid) {
       // empSave local json file in api
       let data = {
@@ -332,15 +355,13 @@ rid:any;
 
         }
       })
-
-
-
-
     }
-
     else {
       alert("form is invalid");
     }
+  
+
+   
   }
 
 
@@ -361,6 +382,7 @@ rid:any;
       console.log(this.EmployeeTypedata)
     })
 
+    
     // getServiceCategoryg
     this.apiService.getServiceCategoryg().subscribe(res => {
       if (res.data.status = 200) {
@@ -441,7 +463,10 @@ rid:any;
   getToday(): string {
     // var test   = document.getElementById("appt");
     // console.log(test);
+   
+     console.log(new Date().toISOString());
     return new Date().toISOString().split('T')[0]
+   
   }
 
   getMinDate():string{
@@ -450,6 +475,7 @@ rid:any;
   }
 
   disableDate():void{
+    console.log(this.EmpRegistration.controls['Appointmentdate'].value);
     this.EmpRegistration.controls['Appointmentdate'].disable();
     this.showEdit=true;
    

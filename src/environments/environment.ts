@@ -5,12 +5,20 @@ import { HttpHeaders } from "@angular/common/http";
 
 
 const baseUrl = "http://172.22.32.100:5001/";
-const baseUrlEmpSave = "http://172.22.32.100:5000/employeeEss/v1.0/";
+const baseUrless = "http://172.22.32.100:5000/employeeess/v1.0/";
+const baseUrlmst = "http://172.22.32.100:5002/employeemst/v1.0/"
+ const baseUrlmdm ="http://172.22.32.100:5003/employeemdm/v1.0/"
+
+
 
 export const environment = {
   production: false,
   baseUrl: baseUrl,
-  baseUrlEmpSave: baseUrlEmpSave,
+  baseUrless: baseUrless,
+  baseUrlmst:baseUrlmst,
+  baseUrlmdm: baseUrlmdm
+
+
 
 
 

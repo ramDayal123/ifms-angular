@@ -1,0 +1,89 @@
+<!-- Content Wrapper. Contains page content -->
+<app-header></app-header>
+
+<div class="content-wrapper ">
+    <nav  aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <i class="fa text-primary fa-home" style="font-size:19px"></i>&nbsp;
+             <a  routerlink="/login" ng-reflect-router-link="/login" href="/login">Login</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a  routerlink="/employee-self-service" ng-reflect-router-link="/employee-self-service" href="/employee-self-service">Menu</a>
+          </li>
+          <li aria-current="Inbox" aria-label="Current Page" class="breadcrumb-item active">ESS Emp Date Type</li>
+        </ol>
+      </nav>
+</div>
+<section class="content bg-light">
+    <div class="container">      
+        <div class="box box-default">   
+          <div class="col-md-12" style="text-align: right;padding-right: 0px !important;">               
+            <button  type="button" title="Back SI Application" (click)="goBack()"
+            class="btn btn-danger btn-flat w-50">Back</button>              
+        </div>         
+            <fieldset>
+                <legend>
+                    <div class="Row" style="text-align: center; align-items: center;  padding-top: 10px;">
+                        <label class="p-5 bg-light-blue" style=" font-weight: bold;">
+                            <div class="section-title">
+                                <p>EMPLOYEE DATES</p>
+                            </div>
+                        </label>
+                    </div>
+                </legend>
+                <form  [formGroup]="EmpSelfDetailForm" (ngSubmit)="onSubmit()">                 
+                    <div class="row m-2 mt-5" >
+                        <div class="col-md-4">
+                            <label><b>Type</b> </label><br>
+                            <label> {{Name}} </label>                      
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Date</b> </label><br>
+                            <label>{{fatherName}} </label>                         
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Select File </b></label> <br>                       
+                            <label> <a style="cursor: pointer; color: red;" src="../../assets/images/Ashok_Chakra.png" target="_blank" title="View"> View</a>                         
+                            </label>
+
+                            
+                        </div>
+                       
+                    </div>
+                   
+                    <!-- <div class="row mr-3" >
+                        <div class="col-md-12" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary btn-flat margin w-100"
+                            action="save">Save</button>
+                        </div>                        
+                    </div> -->
+                    <!-- <app-essbutton></app-essbutton> -->
+                    <!-- Employee Self Detail End -->
+                </form>
+                <table class="table table-striped" style="margin-top: 40px ;">      
+                    <thead class="thead-primary">
+                      <tr>
+                        <th scope="col">Sr. No.</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+
+            </fieldset>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

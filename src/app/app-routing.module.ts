@@ -35,21 +35,33 @@ import { BankAccNoComponent } from './ess-req/employee-self-service/bank-acc-no/
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ESSReqComponent } from './ess-req/ess-req.component';
 import { EmployeeDatesComponent } from './EmployeeDetails/employee-dates/employee-dates.component';
+import { ESSdashboardMenuComponent } from './ess-req/ess-dashboard/essdashboard-menu/essdashboard-menu.component';
+import { ESSDashboardComponent } from './ess-req/ess-dashboard/ess-dashboard.component';
+// ram
+import { RequestComponent } from './ess-req/ess-siloane/request/request.component';
+import { EssSiloanDeductionComponent } from './ess-req/ess-siloan-deduction/ess-siloan-deduction.component';
+// bbbb
+import { ESSRequestForwardComponent } from './ess-request-forward/ess-request-forward.component';
+import { EssPersonalComponent } from './ess-request-forward/ess-personal/ess-personal.component';
+import { EssEmpDateTypeComponent } from './ess-request-forward/ess-emp-date-type/ess-emp-date-type.component';
+import { EssNomineeUpdateComponent } from './ess-request-forward/ess-nominee-update/ess-nominee-update.component';
+import { EssOtherNumberUpdateComponent } from './ess-request-forward/ess-other-number-update/ess-other-number-update.component';
+import { EssBankAccountChangeRequestComponent } from './ess-request-forward/ess-bank-account-change-request/ess-bank-account-change-request.component';
 
 
 
 const routes: Routes = [
-  {path:'login',component:LoginComponent},
-  {path:'',component:MainComponent},
-  {path:'employee_master',component:EmployeemasterComponent},
-  {path:'employe_registration',component:EmployeRegistrationComponent},
+  { path:'login',component:LoginComponent},
+  { path:'',component:MainComponent},
+  { path:'employee_master',component:EmployeemasterComponent},
+  { path:'employe_registration',component:EmployeRegistrationComponent},
   
   // {path:'documents',component:DocumentsComponent},
   {path:'modals',component:ModalsComponent},
   {path:'inbox',component:InboxComponent},
   { path:'Draft', component:DraftComponent },
   { path:'Send', component:SendComponent },
-  {path:'main',component:MainComponent},
+  { path:'main',component:MainComponent},
   { path:'employee-details',component:EmployeeDetailsComponent},
   { path:'employeeIdentification',component:EmployeeIdentificationComponent},
   { path:'address',component:AddressComponent},
@@ -58,16 +70,16 @@ const routes: Routes = [
   { path:'bank-details',component:BankDetailsComponent},
   { path:'pay-entitlement',component:PayEntitlementComponent},
   { path:'document',component:DocumentsComponent},
-  {path:'EmpMstComponent', component:EmpMstComponent},
-  {path:'EmpGenDetailComponent', component:EmpGenDetailComponent},
-  {path:'EmpIdentityComponent', component:EmpIdentityComponent},
-  {path:'EmpDateComponent', component:EmpDateComponent},
-  {path:'EmpFamilyDetailComponent', component:EmpFamilyDetailComponent},
-  {path:'EmpBankAcDetailComponent', component:EmpBankAcDetailComponent},
-  {path:'EmpPayEComponent', component:EmpPayEComponent},
-  {path:'EmpDocComponent', component:EmpDocComponent},
-  {path:'EmpAddressComponent',component:EmpAddressComponent},
-  {path:'EmpDate',component:EmployeeDatesComponent},
+  { path:'EmpMstComponent', component:EmpMstComponent},
+  { path:'EmpGenDetailComponent', component:EmpGenDetailComponent},
+  { path:'EmpIdentityComponent', component:EmpIdentityComponent},
+  { path:'EmpDateComponent', component:EmpDateComponent},
+  { path:'EmpFamilyDetailComponent', component:EmpFamilyDetailComponent},
+  { path:'EmpBankAcDetailComponent', component:EmpBankAcDetailComponent},
+  { path:'EmpPayEComponent', component:EmpPayEComponent},
+  { path:'EmpDocComponent', component:EmpDocComponent},
+  { path:'EmpAddressComponent',component:EmpAddressComponent},
+  { path:'EmpDate',component:EmployeeDatesComponent},
 
   // as
   {path:'employee-self-service', component:EmployeeSelfServiceComponent},
@@ -76,12 +88,26 @@ const routes: Routes = [
   {path:'update-number', component:UpdateNumberComponent},
   {path:'bank-acc-number', component:BankAccNoComponent},
   {path: 'landing-page', component:LandingPageComponent},
+  {path:'ESS_Dashboard_Menu', component:ESSdashboardMenuComponent},
+  {path: 'ESS-Dashboard', component:ESSDashboardComponent},
+  {path:'ess_siloanRequest',component:RequestComponent},
+  {path:'ess-siloanDeduction',component:EssSiloanDeductionComponent},
+  // bb
+  {path: 'ESSRequestForwardComponent', component:ESSRequestForwardComponent},
+  {path: 'Ess-Personal', component:EssPersonalComponent},
+  {path: 'Ess-Emp-Date-Type', component:EssEmpDateTypeComponent},
+  {path: 'Ess-Nominee-Update', component:EssNomineeUpdateComponent},
+  {path: 'Ess-Other-Number-Update', component:EssOtherNumberUpdateComponent},
+  {path: 'Ess-BankAccount-ChangeRequest', component:EssBankAccountChangeRequestComponent},
   {path: 'ESS-Req', component:ESSReqComponent,
+
+
+
+  
 
   children:[
     {path:'header',component:HeaderComponent},
     {path:'footer',component:FooterComponent},
-
   ]
 },
 { path: '', redirectTo: '/main' , pathMatch:"full"}

@@ -189,6 +189,8 @@ export class EmployeeDetailsComponent implements OnInit {
 
   
   }
+
+
    get mobileno() {
     return this.EmpPersonalDetail.get('mobileno')!;
   }
@@ -238,6 +240,9 @@ let data = {
 
   }
   
+
+
+
   
   
     // getServiceCategoryg
@@ -248,10 +253,14 @@ let data = {
    
       console.log(this.essEmployeePersonalDetailsSavedata)
     })
+
+
   
   }
 
 
+
+  
   addEmpDet() {
     // console.log(this.empPerDetForm.value);
   }
@@ -295,6 +304,8 @@ keyPressAlphaNumeric(event:any) {
    }
 
 }
+
+
 function f() {
   throw new Error('Function not implemented.');
 }

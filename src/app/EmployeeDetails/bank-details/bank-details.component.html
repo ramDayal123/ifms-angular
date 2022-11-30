@@ -52,7 +52,13 @@
                                     </div>
                                     <div class="col-md-3">
                                         
-                                        <input type="text" name="text" class="form-control"  formControlName="BankAccount">
+                                        <input type="text" name="text" class="form-control"  formControlName="BankAccount" [ngClass]="{'is-invalid':submitted && bankDetails.controls['BankAccount'].errors}">
+                                        <div *ngIf="submitted && bankDetails.controls['BankAccount'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="submitted && bankDetails.controls['BankAccount'].errors['required']">
+                                                Please Enter Bank Account Number
+                                            </div>
+                                        </div>
                                     </div>
                     
                     
@@ -63,7 +69,13 @@
                     
                                     <div class="col-md-3">
                                         
-                                        <input type="text" name="text" class="form-control"  formControlName="ifscCode">
+                                        <input type="text" name="text" class="form-control"  formControlName="ifscCode"[ngClass]="{'is-invalid':submitted && bankDetails.controls['ifscCode'].errors}">
+                                        <div *ngIf="submitted && bankDetails.controls['ifscCode'].errors"
+                                            class="text-danger">
+                                            <div *ngIf="submitted && bankDetails.controls['ifscCode'].errors['required']">
+                                                Please Enter Ifsc Code
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                 </div>

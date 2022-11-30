@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router' ;
+import { GlobalService } from 'src/app/services/global.service';
 import { DataStoreService } from 'src/app/services/data-store.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -17,7 +18,7 @@ export class EmployeeIdentificationComponent implements OnInit {
   EmployeeIdentification!: FormGroup;
   essEmpIdentificationNumberSavedata: any;
 
-  constructor(private formbuilder: FormBuilder, private apiService: ApiService, private http: HttpClient, private router: Router, private dataStore: DataStoreService) { }
+  constructor(private formbuilder: FormBuilder, private apiService: ApiService,public global: GlobalService, private http: HttpClient, private router: Router, private dataStore: DataStoreService) { }
 
   ngOnInit(): void {
     this.EmployeeIdentification = this.formbuilder.group({
@@ -48,6 +49,7 @@ export class EmployeeIdentificationComponent implements OnInit {
      
         console.log(this.essEmpIdentificationNumberSavedata)
       })
+      
     
   }
 
